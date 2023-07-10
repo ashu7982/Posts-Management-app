@@ -3,6 +3,11 @@
 const express=require('express');
 const mongoose=require('mongoose');
 const app=express();
+const userRoutes = require('./Routes/userRoutes');
+const postRoutes = require('./Routes/postRoutes');
+
+
+app.use(express.json());
 
 //we are connecting our database with our project.
 const connection=async()=>{
