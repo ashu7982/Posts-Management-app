@@ -9,6 +9,12 @@ const postRoutes = require('./Routes/postRoutes');
 
 app.use(express.json());
 
+
+// our routes
+
+app.use('/users', userRoutes);
+app.use('/posts', postRoutes);
+
 //we are connecting our database with our project.
 const connection=async()=>{
     try{
