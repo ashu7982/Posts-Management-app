@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
       }
 
 
-       // Check the password
+       // Checking the password
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
       return res.status(400).json({ error: 'Invalid email or password' });
@@ -67,9 +67,6 @@ router.post('/login', async (req, res) => {
 // route for user logout
 router.get('/logout', auth, async (req, res) => {
     try {
-      
-      
-  
       res.status(200).json({ msg: 'User has been logged out' });
     } catch (error) {
       res.status(400).json({ error: error.message });

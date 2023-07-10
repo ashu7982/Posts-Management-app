@@ -34,6 +34,7 @@ router.patch('/update/:id', auth, async (req, res) => {
       const { id } = req.params;
       const { title, content } = req.body;
       const author = req.user.userId;
+
   
       // checking that the user wants to updating the post is authenticated or not.
       const post = await Post.findOneAndUpdate({ _id: id, author }, { title, content }, { new: true });
@@ -54,6 +55,7 @@ router.delete('/delete/:id', auth, async (req, res) => {
     try {
       const { id } = req.params;
       const author = req.user.userId;
+      
   
       // checking that post we wants to delete have authenticated user or not.
       const post = await Post.findOneAndDelete({ _id: id, author });
